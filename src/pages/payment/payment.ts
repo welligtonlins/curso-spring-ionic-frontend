@@ -20,6 +20,7 @@ export class PaymentPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder){
+      
       this.pedido = this.navParams.get('pedido');
 
       this.formGroup = this.formBuilder.group({
@@ -30,7 +31,7 @@ export class PaymentPage {
 
   nextPage() {
     this.pedido.pagamento = this.formGroup.value;
-    console.log(this.pedido);
+    this.navCtrl.setRoot('OrderConfirmationPage', {pedido: this.pedido});
   }
 
 }
